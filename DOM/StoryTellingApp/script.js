@@ -33,6 +33,18 @@ const storyObj = {
 }
 
 
-function displayStory(){
-    console.log("You clicked the button");
+function displayStory(genre){
+    const result = document.getElementById('result');
+    if(storyObj.hasOwnProperty(genre)){
+        result.textContent =  storyObj[genre].story;
+        storyContainer.style.borderColor = storyObj[genre].borderColor;
+    }
 }
+
+scaryStoryBtn.addEventListener('click',  () => displayStory('scary'));
+
+
+funnyStoryBtn.addEventListener('click',  () => displayStory('funny'));
+
+
+adventureStoryBtn.addEventListener('click', () => displayStory('adventure'));
